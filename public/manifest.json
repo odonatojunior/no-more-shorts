@@ -1,0 +1,17 @@
+{
+  "name": "No More Shorts",
+  "description": "Skip some 🐂💩 from YouTube Shorts using the default player",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs", "contextMenus"],
+  "host_permissions": ["https://*.youtube.com/*", "https://*.youtube.com/*"],
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png"
+  }
+}
