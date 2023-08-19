@@ -10,7 +10,11 @@ I don't like that you can't skip time watching Shorts, so I made an extension th
 
 # Installation
 
-It's simple to use, you just need to load the packed _.zip_ file into your Chrome extensions tab and get rid of this unskippable video format
+Check the releases tab on Github and download the zip file
+
+![image](https://github.com/odonatojunior/no-more-shorts/assets/53847430/0e41d313-a49e-4358-a077-c17882211401)
+
+Load the packed _.zip_ file into your Chrome extensions tab and get rid of this unskippable video format
 
 ![Example](https://i.imgur.com/aDwfX9R.png)
 
