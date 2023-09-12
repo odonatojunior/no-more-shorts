@@ -31,7 +31,7 @@
         {
           "assets": [
             {
-              "path": "dist",
+              "path": "dist/**/*.{js}",
               "label": "Plugin"
             }
           ]
@@ -42,6 +42,5 @@
     "publish": [
       "@semantic-release/github"
     ]
-  },
-  "main": "dist/background.js"
+  }
 }
