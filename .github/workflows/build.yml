@@ -27,7 +27,7 @@ jobs:
 
       - name: Build
         run: yarn build
-          
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
@@ -35,10 +35,17 @@ jobs:
           path: ./dist/
           if-no-files-found: error
 
+      - name: Zip-Release4cpp
+        uses: darshitsri/zip-release@v3
+        with:
+          # Filename for archive
+          filename: extension.zip
+          path: .
+          directory: dist
+
       - name: Release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
-              
