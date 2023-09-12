@@ -13,7 +13,6 @@ chrome.contextMenus.create({
   ],
 })
 
-// on context menu click
 chrome.contextMenus.onClicked.addListener(async () => {
   const [{ url }] = await chrome.tabs.query({
     active: true,
@@ -26,7 +25,6 @@ chrome.contextMenus.onClicked.addListener(async () => {
   })
 })
 
-// on page load
 chrome.webRequest.onCompleted.addListener(
   ({ url }) => {
     const newUrl = convertShortsUrl(url!)
