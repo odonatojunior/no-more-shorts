@@ -41,7 +41,9 @@ jobs:
           if-no-files-found: error
           
       - name: github-action-publish-binaries
-        uses: skx/github-action-publish-binaries@release-2.0       
+        uses: skx/github-action-publish-binaries@release-2.0
+        with:
+          args: 'build'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
