@@ -32,8 +32,8 @@
         {
           "assets": [
             {
-              "path": "./dist/**/*.{js}",
-              "label": "Plugin"
+              "path": "./extension.zip",
+              "label": "extension"
             }
           ]
         }
