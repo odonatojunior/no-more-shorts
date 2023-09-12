@@ -32,7 +32,7 @@
         {
           "assets": [
             {
-              "path": "dist/**/*.{js}",
+              "path": "./dist/**/*.{js}",
               "label": "Plugin"
             }
           ]
