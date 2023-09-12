@@ -27,11 +27,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        
-      - name: Zip Release
-        uses: TheDoctor0/zip-release@0.7.1
-        with:
-          directory: dist
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
@@ -46,11 +41,12 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
+      - name: Get Semantic Release Info
+        uses: jossef/action-semantic-release-info@v2.1.0
 
-      - name: github-action-publish-binaries
-        uses: skx/github-action-publish-binaries@release-2.0
+      - name: Release & Assets
+        uses: Hs1r1us/Release-AIO@v2.0.0
         with:
-          args: 'build'
-          releaseId: ${{ needs.create_release.outputs.id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ steps.semantic_release_info.outputs.git_tag }}
+          asset_files: /dist
+          draft: true
