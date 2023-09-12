@@ -31,8 +31,8 @@
         {
           "assets": [
             {
-              "path": "dist/**/*.{js}",
-              "label": "Build"
+              "path": "dist",
+              "label": "Plugin"
             }
           ]
         }
