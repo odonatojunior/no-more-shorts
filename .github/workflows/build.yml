@@ -39,13 +39,6 @@ jobs:
           name: build
           path: ./dist/
           if-no-files-found: error
-          
-      - name: github-action-publish-binaries
-        uses: skx/github-action-publish-binaries@release-2.0
-        with:
-          args: 'build'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release
         run: npx semantic-release
@@ -53,3 +46,11 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
+
+      - name: github-action-publish-binaries
+        uses: skx/github-action-publish-binaries@release-2.0
+        with:
+          args: 'build'
+          releaseId: ${{ needs.create_release.outputs.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
