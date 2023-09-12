@@ -1,16 +1,37 @@
 {
   "name": "no-more-shorts",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.243",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "semantic-release": "^21.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/odonatojunior/no-more-shorts.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "repositoryUrl": "https://github.com/odonatojunior/no-more-shorts",
+    "publish": [
+      "@semantic-release/github"
+    ]
   }
 }
