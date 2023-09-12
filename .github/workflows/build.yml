@@ -27,6 +27,11 @@ jobs:
 
       - name: Build
         run: yarn build
+        
+      - name: Zip Release
+        uses: TheDoctor0/zip-release@0.7.1
+        with:
+          directory: dist
           
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
@@ -34,6 +39,9 @@ jobs:
           name: build
           path: ./dist/
           if-no-files-found: error
+          
+      - name: github-action-publish-binaries
+        uses: skx/github-action-publish-binaries@release-2.0            
 
       - name: Release
         run: npx semantic-release
