@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "rm -rf dist && tsc --project tsconfig.build.json && vite build && cp package.json dist/package.json",
     "preview": "vite preview",
     "semantic-release": "semantic-release"
   },
@@ -26,12 +26,28 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./dist"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "package.json",
+            "README.md",
+            "CHANGELOG.md",
+            "dist/**/*.{js}"
+          ]
+        }
+      ]
     ],
     "repositoryUrl": "https://github.com/odonatojunior/no-more-shorts",
     "publish": [
       "@semantic-release/github"
     ]
-  }
+  },
+  "main": "dist/background.js"
 }
