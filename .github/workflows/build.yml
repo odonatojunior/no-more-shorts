@@ -28,12 +28,12 @@ jobs:
       - name: Build
         run: yarn build
           
-      - name: upload windows artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          name: build
+          path: ./dist/
+          if-no-files-found: error
 
       - name: Release
         run: npx semantic-release
