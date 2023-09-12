@@ -41,6 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
+          
       - name: Get Semantic Release Info
         uses: jossef/action-semantic-release-info@v2.1.0
 
@@ -48,5 +49,6 @@ jobs:
         uses: Hs1r1us/Release-AIO@v2.0.0
         with:
           tag_name: ${{ steps.semantic_release_info.outputs.git_tag }}
+          release_name: ${{ steps.semantic_release_info.outputs.git_tag }}
           asset_files: /dist
           draft: true
