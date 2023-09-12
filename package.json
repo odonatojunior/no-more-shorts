@@ -10,10 +10,11 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@semantic-release/github": "^9.0.5",
     "@types/chrome": "^0.0.243",
+    "semantic-release": "^21.1.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "semantic-release": "^21.1.1"
+    "vite": "^4.4.5"
   },
   "repository": {
     "type": "git",
